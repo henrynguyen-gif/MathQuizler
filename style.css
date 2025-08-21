@@ -1,0 +1,465 @@
+:root {
+    --duo-green-light: #58CC02;
+    --duo-green-dark: #46A300;
+    --duo-blue-light: #1CB0F6;
+    --duo-blue-dark: #1899e0;
+    --duo-purple-light: #9042F6;
+    --duo-purple-dark: #792CDA;
+    --duo-orange-light: #FF9600;
+    --duo-orange-dark: #E88300;
+    --duo-red-light: #ff4b4b;
+    --duo-red-dark: #d62c2c;
+    --duo-text-dark: #4B4B4B;
+    --duo-light-bg: #F8F8F8;
+    --duo-shadow: #E5E5E5;
+    --duo-dark-bg: #4c4c4c;
+    --duo-lesson-unlocked: #ffffff;
+    --duo-lesson-locked: #aeb4c0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--duo-light-bg);
+    color: var(--duo-text-dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Style cho màn hình khởi động */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 1s ease-in-out;
+}
+
+.logo-text {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--duo-text-dark);
+    margin-bottom: 20px;
+}
+
+.logo-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+#loading-text {
+    color: var(--duo-text-dark);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+    min-height: 50px;
+}
+
+#auth-screen, #user-info-screen, #map-screen, #lesson-screen {
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-header {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid var(--duo-shadow);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.header-logo {
+    height: 40px;
+    width: auto;
+}
+
+.progress-bar-top {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    color: var(--duo-text-dark);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.header-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.header-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 var(--duo-text-dark);
+}
+
+.lang-btn {
+    border: 3px solid var(--duo-text-dark);
+    background-color: var(--duo-light-bg);
+    box-shadow: 0 4px 0 var(--duo-text-dark);
+    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+}
+
+.lang-btn.active {
+    background-color: var(--duo-blue-light);
+    color: #fff;
+    box-shadow: 0 4px 0 var(--duo-blue-dark);
+    border-color: var(--duo-blue-dark);
+}
+
+.lang-btn.active:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--duo-blue-dark);
+}
+
+.auth-tabs {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--duo-text-dark);
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    transition: background-color 0.2s;
+}
+
+.tab-btn.active {
+    background-color: #fff;
+    color: var(--duo-blue-light);
+    border-bottom: 2px solid var(--duo-blue-light);
+}
+
+/* Tăng khoảng cách và chiều rộng của form */
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 20px 40px 40px; /* Tăng padding */
+}
+
+.auth-form h2 {
+    margin-top: 0;
+    color: var(--duo-blue-light);
+}
+
+#user-info-screen h2 {
+    color: var(--duo-blue-light);
+    margin-top: 30px;
+}
+
+.auth-form input, #user-info-screen input {
+    padding: 15px; /* Tăng padding của input */
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    text-align: center;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: calc(100% - 40px);
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #999;
+}
+
+/* Các nút chính: Đăng nhập, Đăng ký, Lưu thông tin */
+#login-btn, #register-btn, #save-info-btn {
+    width: 100%;
+    padding: 18px; /* Tăng padding của nút chính */
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: var(--duo-green-light);
+    box-shadow: 0 4px 0 var(--duo-green-dark);
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#login-btn:active, #register-btn:active, #save-info-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--duo-green-dark);
+}
+
+.error-message {
+    color: var(--duo-red-light);
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+#map-screen {
+    background-color: var(--duo-light-bg);
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#map-screen header h1 {
+    display: none;
+}
+
+.progress-bar-top {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+/* Cập nhật container bản đồ */
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.map-path-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.map-path {
+    stroke: #ddd;
+    stroke-width: 8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Các nút bài học trên bản đồ */
+.map-lesson-btn {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    border: 4px solid var(--duo-green-dark);
+    color: var(--duo-text-dark);
+    box-shadow: 0 6px 0 var(--duo-green-dark);
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+}
+
+.map-lesson-btn.unlocked {
+    background-color: var(--duo-lesson-unlocked);
+}
+
+.map-lesson-btn.locked {
+    background-color: var(--duo-lesson-locked);
+    border-color: #7b8392;
+    box-shadow: 0 6px 0 #7b8392;
+    cursor: not-allowed;
+    color: #8c8c8c;
+}
+
+.map-lesson-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 var(--duo-green-dark);
+}
+
+/* Định vị các nút theo đường SVG mới */
+.map-lesson-btn[data-lesson="1"] {
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+
+.map-lesson-btn[data-lesson="2"] {
+    top: 20%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.map-lesson-btn[data-lesson="3"] {
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.map-lesson-btn[data-lesson="4"] {
+    top: 70%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.map-lesson-btn[data-lesson="5"] {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Lesson Screen */
+#progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: var(--duo-shadow);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--duo-green-light);
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+#question-container {
+    margin-top: 30px;
+    width: 100%;
+    text-align: left;
+    padding: 0 40px; /* Thêm padding cho container câu hỏi */
+}
+
+#question-text {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#answer-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+/* Nút trả lời câu hỏi */
+.answer-btn {
+    width: 100%;
+    padding: 18px; /* Tăng padding của nút trả lời */
+    background-color: #fff;
+    color: var(--duo-text-dark);
+    font-weight: bold;
+    border-radius: 12px;
+    border: 2px solid var(--duo-shadow);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.answer-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.answer-btn:active {
+    transform: scale(0.98);
+}
+
+.answer-btn.selected {
+    border-color: var(--duo-blue-light);
+    background-color: #e0f6ff;
+}
+
+.answer-btn.correct {
+    border-color: var(--duo-green-dark);
+    background-color: #EAF8DD;
+}
+
+.answer-btn.wrong {
+    border-color: var(--duo-red-dark);
+    background-color: #ffe0e0;
+}
+
+/* Nút kiểm tra và tiếp tục */
+#check-btn, #continue-btn, #back-to-classes {
+    width: 100%;
+    padding: 22px; /* Tăng padding của nút kiểm tra */
+    border: none;
+    border-radius: 12px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--duo-green-dark);
+    background-color: var(--duo-green-light);
+    transition: transform 0.1s, box-shadow 0.1s;
+    margin-top: 20px;
+}
+
+#check-btn:active, #continue-btn:active, #back-to-classes:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--duo-green-dark);
+}
+
+#feedback-message {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}

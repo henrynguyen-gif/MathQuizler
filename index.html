@@ -1,0 +1,114 @@
+<main>
+    <div id="splash-screen">
+        <h1 class="logo-text"><span class="logo-icon">M</span> MathQuizler</h1>
+        <div id="loading-text"></div>
+    </div>
+
+    <div id="auth-screen" style="display: none;">
+        <header class="main-header">
+            <img src="https://i.ibb.co/L5k6Y90/Black-and-White-Modern-Streetwear-Sport-Logo.png" alt="MathQuizler Logo" class="header-logo">
+            <div class="header-buttons">
+                <button id="lang-vie-btn" class="header-btn lang-btn active">VIE</button>
+                <button id="lang-eng-btn" class="header-btn lang-btn">ENG</button>
+                <button id="help-btn" class="header-btn" data-lang-key="help-btn">HƯỚNG DẪN</button>
+            </div>
+        </header>
+        <div class="auth-tabs">
+            <button class="tab-btn active" data-tab="login" data-lang-key="tab-btn-login">Đăng nhập</button>
+            <button class="tab-btn" data-tab="register" data-lang-key="tab-btn-register">Đăng ký</button>
+        </div>
+        <div id="login-form" class="auth-form">
+            <h2 data-lang-key="login-h2">Đăng nhập</h2>
+            <input type="text" id="login-username" placeholder="Tên đăng nhập" data-lang-key="login-username-placeholder">
+            <div class="password-container">
+                <input type="password" id="login-password" placeholder="Mật khẩu" data-lang-key="password-placeholder">
+                <span class="toggle-password">👁️</span>
+            </div>
+            <button id="login-btn" data-lang-key="login-btn">Đăng nhập</button>
+            <p id="login-error" class="error-message"></p>
+        </div>
+        <div id="register-form" class="auth-form" style="display: none;">
+            <h2 data-lang-key="register-h2">Đăng ký</h2>
+            <input type="text" id="register-username" placeholder="Tên đăng nhập" data-lang-key="register-username-placeholder">
+            <div class="password-container">
+                <input type="password" id="register-password" placeholder="Mật khẩu" data-lang-key="password-placeholder">
+                <span class="toggle-password">👁️</span>
+            </div>
+            <div class="password-container">
+                <input type="password" id="register-confirm-password" placeholder="Xác nhận mật khẩu" data-lang-key="confirm-password-placeholder">
+                <span class="toggle-password">👁️</span>
+            </div>
+            <button id="register-btn" data-lang-key="register-btn">Đăng ký</button>
+            <p id="register-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <div id="user-info-screen" style="display:none;">
+        <header class="main-header">
+            <img src="https://i.ibb.co/L5k6Y90/Black-and-White-Modern-Streetwear-Sport-Logo.png" alt="MathQuizler Logo" class="header-logo">
+            <div class="header-buttons">
+                <button id="lang-vie-btn-2" class="header-btn lang-btn active">VIE</button>
+                <button id="lang-eng-btn-2" class="header-btn lang-btn">ENG</button>
+                <button id="help-btn-2" class="header-btn" data-lang-key="help-btn">HƯỚNG DẪN</button>
+            </div>
+        </header>
+        <h2 data-lang-key="user-info-h2">Thông tin của bạn</h2>
+        <input type="text" id="display-name" placeholder="Tên hiển thị" data-lang-key="display-name-placeholder">
+        <input type="number" id="age" placeholder="Tuổi" data-lang-key="age-placeholder">
+        <input type="email" id="email" placeholder="Email (tùy chọn)" data-lang-key="email-placeholder">
+        <button id="save-info-btn" data-lang-key="save-info-btn">Lưu thông tin</button>
+    </div>
+
+    <div id="map-screen" style="display:none;">
+        <header class="main-header">
+            <img src="https://i.ibb.co/L5k6Y90/Black-and-White-Modern-Streetwear-Sport-Logo.png" alt="MathQuizler Logo" class="header-logo">
+            <div class="progress-bar-top">
+                <div id="user-progress" class="progress"></div>
+            </div>
+            <div class="header-buttons">
+                <button id="lang-vie-btn-3" class="header-btn lang-btn active">VIE</button>
+                <button id="lang-eng-btn-3" class="header-btn lang-btn">ENG</button>
+                <button id="help-btn-3" class="header-btn" data-lang-key="help-btn">HƯỚNG DẪN</button>
+            </div>
+        </header>
+        <div class="map-container">
+            <svg class="map-path-svg" viewBox="0 0 100 100">
+                <path class="map-path" d="M 10 10 Q 50 0, 90 20 T 70 50 T 30 70 T 50 90"></path>
+            </svg>
+            <button class="map-lesson-btn unlocked" data-lesson="1">1</button>
+            <button class="map-lesson-btn locked" data-lesson="2">2</button>
+            <button class="map-lesson-btn locked" data-lesson="3">3</button>
+            <button class="map-lesson-btn locked" data-lesson="4">4</button>
+            <button class="map-lesson-btn locked" data-lesson="5">5</button>
+        </div>
+    </div>
+
+    <div id="lesson-screen" style="display:none;">
+        <header class="main-header">
+            <img src="https://i.ibb.co/L5k6Y90/Black-and-White-Modern-Streetwear-Sport-Logo.png" alt="MathQuizler Logo" class="header-logo">
+            <div class="progress-bar-top">
+                <div id="user-progress-2" class="progress"></div>
+            </div>
+            <div class="header-buttons">
+                <button id="lang-vie-btn-4" class="header-btn lang-btn active">VIE</button>
+                <button id="lang-eng-btn-4" class="header-btn lang-btn">ENG</button>
+                <button id="help-btn-4" class="header-btn" data-lang-key="help-btn">HƯỚNG DẪN</button>
+            </div>
+        </header>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="question-container">
+            <p id="question-text"></p>
+            <div id="answer-options">
+                <button class="answer-btn"></button>
+                <button class="answer-btn"></button>
+                <button class="answer-btn"></button>
+                <button class="answer-btn"></button>
+            </div>
+        </div>
+        <button id="check-btn" data-lang-key="check-btn">Kiểm tra</button>
+        <div id="feedback-message"></div>
+        <button id="continue-btn" style="display:none;" data-lang-key="continue-btn">Tiếp tục</button>
+    </div>
+</main>
